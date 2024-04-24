@@ -1,14 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-    <title>
-        Amuhak
-    </title>
-    <head>
-        <meta name="viewport" content="width=device-width">
-        <meta name="Hello World">
-        <meta name="description" content="Hello World">
-    </head>
-    <body>
-        Hello, World!!
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amuhak</title>
+    <meta name="description" content="Welcome to Amuhak, the personal website of Amulya">
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .Icons {
+            position: absolute;
+            bottom: 20px;
+            /* Adjust this value to position it a little above the bottom */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .Icon {
+            display: flex;
+            justify-content: center;
+        }
+
+        .Icon a {
+            margin: 0 10px;
+            /* Adjust spacing between icons if needed */
+        }
+
+        .github-icon {
+            filter: invert(100%);
+        }
+
+        .linkedin-icon {
+            filter: invert(100%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Hi, I'm Amulya!</h1>
+        <p>Welcome to my website. I'm not a web dev. This is just a fun side project</p>
+        <div class="Icons">
+            <div class="Icon">
+                <a href="https://github.com/amuhak" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5.0.0/icons/github.svg" alt="GitHub logo"
+                        width="24" height="24" class="github-icon">
+                </a>
+                <a href="https://www.linkedin.com/in/amulya-j-3ab320192" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5.0.0/icons/linkedin.svg" alt="LinkedIn logo"
+                        width="24" height="24" class="linkedin-icon">
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
