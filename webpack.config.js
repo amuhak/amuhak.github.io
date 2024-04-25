@@ -8,7 +8,7 @@ const HtmlMinimizerPlugin = require('html-minimizer-webpack-plugin');
 module.exports = {
     mode: 'production', // or 'production' or 'none'
     entry: {
-        main: './src/index.js',
+        index: './src/index.js',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
