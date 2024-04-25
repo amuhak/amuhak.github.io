@@ -12,7 +12,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js',
+        filename: '[name],[contenthash].js',
     },
     module: {
         rules: [
@@ -25,7 +25,9 @@ module.exports = {
     plugins: [
         new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin({
+            minify: true,
             template: './src/index.html',
+            title: 'Caching',
         }),
     ],
     optimization: {
