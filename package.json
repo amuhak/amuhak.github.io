@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx webpack",
-    "publish": "npx webpack && git add . && git commit -m 'update' && git push"
+    "build": "del /F /Q .\\dist\\* && npx webpack",
+    "publish": "del /F /Q .\\dist\\* && npx webpack && git add . && git commit -m 'update' && git push"
   },
   "keywords": [],
   "author": "",
