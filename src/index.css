@@ -1,96 +1,97 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
-    body {
-        background-color: #121212;
-        color: white;
-        font-family: "JetBrains Mono", monospace;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
+body {
+    background-color: #121212;
+    color: white;
+    font-family: "JetBrains Mono", monospace;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dynamic-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff7300, #f0e130, #30e130, #30e1cf, #3013e1, #cf13e1, #e13030, #e1cf30, #e130cf, #cf30e1, #30e1cf, #30e130);
+    background-size: 300% 300%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
     }
 
-    .container {
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    50% {
+        background-position: 100% 50%;
     }
 
-    .dynamic-background {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(45deg, #ff7300, #f0e130, #30e130, #30e1cf, #3013e1, #cf13e1, #e13030, #e1cf30, #e130cf, #cf30e1, #30e1cf, #30e130);
-        background-size: 300% 300%;
-        animation: gradientAnimation 15s ease infinite;
+    100% {
+        background-position: 0% 50%;
     }
+}
 
-    @keyframes gradientAnimation {
-        0% {
-            background-position: 0% 50%;
-        }
+.content {
+    z-index: 1;
+    margin-top: -12%;
+    text-align: center;
+}
 
-        50% {
-            background-position: 100% 50%;
-        }
+.Icons {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
 
-        100% {
-            background-position: 0% 50%;
-        }
-    }
+.Icon {
+    display: flex;
+    justify-content: center;
+}
 
-    .content {
-        z-index: 1;
-        margin-top: -12%;
-        text-align: center;
-    }
+.subtext {
+    font-size: 2.5vh;
+    margin-left: 2%;
+    margin-right: 2%;
+}
 
+.title {
+    font-size: 6vh;
+}
+
+@media screen and (orientation: portrait) {
     .Icons {
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 1;
-    }
-
-    .Icon {
-        display: flex;
-        justify-content: center;
+        padding-bottom: 80px;
     }
 
     .subtext {
-        font-size: 2.5vh;
-        margin-left: 2%;
-        margin-right: 2%;
+        font-size: 4vw;
     }
 
     .title {
-        font-size: 6vh;
+        font-size: 9vw;
     }
+}
 
-    @media screen and (orientation: portrait) {
-        .Icons {
-            padding-bottom: 80px;
-        }
-        .subtext {
-            font-size: 4vw;
-        }
-        .title {
-            font-size: 9vw;
-        }
-    }
+.Icon a {
+    margin: 0 10px;
+}
 
-    .Icon a {
-        margin: 0 10px;
-    }
+.github-icon {
+    filter: invert(100%);
+}
 
-    .github-icon {
-        filter: invert(100%);
-    }
-
-    .linkedin-icon {
-        filter: invert(100%);
-    }
-
+.linkedin-icon {
+    filter: invert(100%);
+}
