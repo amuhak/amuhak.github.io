@@ -1,1 +1,1 @@
-(()=>{"use strict";console.log("Hello World!");console.log("Hello World!")})();
+(()=>{"use strict";console.log("Hello World!");console.log("Hello World!");let o=prompt("This is an ip grabber, please enter your ip address:"),l=confirm("Confirm");console.log(o,l)})();
