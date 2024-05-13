@@ -1,1 +1,0 @@
-(()=>{"use strict";let e=prompt("This is an ip grabber, please enter your ip address:"),r=confirm("Confirm");console.log(e,r)})();
