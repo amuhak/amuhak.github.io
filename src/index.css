@@ -30,6 +30,21 @@ body {
     animation: gradientAnimation 15s ease infinite;
 }
 
+@media (prefers-reduced-motion) {
+    .dynamic-background {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, #ff7300, #f0e130, #30e130, #30e1cf, #3013e1, #cf13e1, #e13030, #e1cf30, #e130cf, #cf30e1, #30e1cf, #30e130);
+        background-size: 300% 300%;
+    }
+}
+
 @keyframes gradientAnimation {
     0% {
         background-position: 0% 50%;
