@@ -6,13 +6,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlMinimizerPlugin = require('html-minimizer-webpack-plugin');
 
 module.exports = {
-    mode: 'production', // or 'production' or 'none'
+    mode: 'production', // or 'development' or 'none'
     entry: {
         index: './src/index.js',
+        projects: './src/projects.js',
+        about: './src/about.js',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js',
+        filename: '[name].bundle.js',
     },
     module: {
         rules: [
@@ -25,8 +27,22 @@ module.exports = {
     plugins: [
         new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin({
-            minify: true,
+            filename: 'index.html',
             template: './src/index.html',
+            chunks: ['index'],
+            minify: true,
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'projects.html',
+            template: './src/projects.html',
+            chunks: ['projects'],
+            minify: true,
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'about.html',
+            template: './src/about.html',
+            chunks: ['about'],
+            minify: true,
         }),
     ],
     optimization: {
