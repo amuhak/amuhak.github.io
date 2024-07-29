@@ -48,6 +48,7 @@ body {
     z-index: 1;
     margin-top: -12%;
     text-align: center;
+    overflow-y: auto;
 }
 
 .navigation {
