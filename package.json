@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "del /F /Q .\\dist\\* && npx webpack",
-    "publish": "del /F /Q .\\dist\\* && npx webpack && git add . && git commit -m 'update' && git push"
+    "publish": "del /F /Q .\\dist\\* && copy .\\robots.txt .\\dist\\robots.txt && npx webpack && git add . && git commit -m 'update' && git push"
   },
   "keywords": [],
   "author": "",
