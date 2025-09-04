@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "del /F /Q .\\dist\\* && npx webpack --mode production",
-    "publish": "del /F /Q .\\dist\\* && copy .\\robots.txt .\\dist\\robots.txt && npx webpack"
+  "build": "webpack --mode production",
+  "publish": "webpack"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +18,7 @@
     "html-minimizer-webpack-plugin": "^5.0.0",
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.9.0",
+  "copy-webpack-plugin": "^12.0.2",
     "postcss": "^8.5.3",
     "purgecss-webpack-plugin": "^7.0.2",
     "terser-webpack-plugin": "^5.3.10",

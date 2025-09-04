@@ -4,6 +4,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlMinimizerPlugin = require('html-minimizer-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     mode: 'production', // or 'development' or 'none'
@@ -15,6 +16,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].bundle.js',
+    clean: true,
     },
     module: {
         rules: [
@@ -43,6 +45,11 @@ module.exports = {
             template: './src/about.html',
             chunks: ['about'],
             minify: true,
+        }),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: 'robots.txt', to: '.' },
+            ],
         }),
     ],
     optimization: {
