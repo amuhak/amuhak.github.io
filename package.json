@@ -4,20 +4,27 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "del /F /Q .\\dist\\* && npx webpack",
-    "publish": "del /F /Q .\\dist\\* && copy .\\robots.txt .\\dist\\robots.txt && npx webpack && git add . && git commit -m 'update' && git push"
+    "build": "del /F /Q .\\dist\\* && npx webpack --mode production",
+    "publish": "del /F /Q .\\dist\\* && copy .\\robots.txt .\\dist\\robots.txt && npx webpack"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "css-loader": "^7.1.1",
-    "css-minimizer-webpack-plugin": "^6.0.0",
+    "css-minimizer-webpack-plugin": "^7.0.0",
+    "cssnano": "^7.0.6",
+    "html-inline-css-webpack-plugin": "^1.11.2",
     "html-minimizer-webpack-plugin": "^5.0.0",
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.9.0",
+    "postcss": "^8.5.3",
+    "purgecss-webpack-plugin": "^7.0.2",
     "terser-webpack-plugin": "^5.3.10",
     "webpack": "^5.91.0",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^6.0.0"
+  },
+  "dependencies": {
+    "react-dev-utils": "^12.0.1"
   }
 }
