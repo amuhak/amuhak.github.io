@@ -347,16 +347,16 @@ body {
 
 .project-expanded__media {
     width: 100%;
-    height: 100%;
-    max-height: none;
+    max-height: 100%;
     border-radius: 16px;
-    object-fit: cover;
+    object-fit: contain;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
 .project-expanded__media video,
 video.project-expanded__media {
     background: #000;
+    object-fit: cover;
 }
 
 @media (max-width: 992px) {
