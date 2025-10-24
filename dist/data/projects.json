@@ -6,9 +6,8 @@
             "url": "https://github.com/amuhak/BackPropagation",
             "linkText": "Code",
             "details": [
-                "Optimized CUDA kernels to train multilayer perceptrons without relying on external math libraries.",
-                "Implements momentum, weight decay, and configurable activation functions to experiment with convergence.",
-                "Includes benchmarking harness and visual metrics for monitoring training progress."
+                "Optimized CUDA kernels to train multilayer backpropagation neural networks.",
+                "Supports variable layer sizes, number of layers, activation functions, learning rates, batch sizes."
             ],
             "media": {
                 "type": "image",
@@ -22,9 +21,9 @@
             "url": "https://github.com/amuhak/RayTracing",
             "linkText": "Code",
             "details": [
-                "Physically based renderer with reflections, refractions, and soft shadows.",
-                "Interactive desktop GUI for controlling camera, material presets, and render targets.",
-                "Supports scene import/export using a lightweight JSON description format."
+                "Implements ray tracing algorithms to render 3D scenes with realistic lighting and shadows.",
+                "Has a terminal-based UI to see render progress.",
+                "Has a GUI to view partially rendered images in real-time."
             ],
             "media": {
                 "type": "image",
@@ -38,9 +37,9 @@
             "url": "https://github.com/amuhak/1brc",
             "linkText": "Code",
             "details": [
-                "Lock-free data ingestion pipeline that shards work across CPU cores.",
-                "SIMD-accelerated parsing routines tuned with JMH benchmarks.",
-                "Integrates flight recorder telemetry for profiling throughput bottlenecks."
+                "Parses 1 Billion lines in under 6 seconds.",
+                "Uses multithreading to split the 11GB input file to parse in parallel.",
+                "Optimized memory management to reduce garbage collection overhead."
             ],
             "media": {
                 "type": "image",
@@ -54,15 +53,14 @@
             "url": "https://math1554.amuhak.com/",
             "linkText": "Website",
             "details": [
-                "Modular lessons with interactive practice problems and spaced repetition prompts.",
-                "Streamlined layouts optimized for mobile and screen readers.",
-                "Backend pipeline renders LaTeX notes, quizzes, and solution walkthroughs."
+                "Comprehensive notes covering all topics in the course.",
+                "Includes interactive examples and visualizations to aid understanding.",
+                "Has helped many students excel in the course."
             ],
             "media": {
-                "type": "video",
-                "src": "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                "poster": "https://placehold.co/960x540/0b1120/ffffff?text=Learn+Linear+Algebra",
-                "alt": "Course walkthrough preview"
+                "type": "image",
+                "src": "https://placehold.co/960x540/374151/ffffff?text=Learn+Linear+Algebra",
+                "alt": "Learn Linear Algebra website screenshot"
             }
         }
     ]

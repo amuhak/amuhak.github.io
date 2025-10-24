@@ -143,97 +143,48 @@ const createExpandedContent = (project) => {
 };
 
 const createProjectCard = (project) => {
-	const wrapper = document.createElement("div");
-	wrapper.className = "grid-item";
-	wrapper.tabIndex = 0;
+	const card = document.createElement("div");
+	card.className = "project-card";
+	card.setAttribute("tabindex", "0");
 
-	const summary = document.createElement("div");
-	summary.className = "project-summary";
+	const content = document.createElement("div");
+	content.className = "project-card-content";
 
-	const projectTitle = document.createElement("h2");
-	projectTitle.className = "project-title";
-	projectTitle.textContent = project.title ?? "Untitled Project";
+	const front = document.createElement("div");
+	front.className = "project-card-front";
 
-	const projectDescription = document.createElement("p");
-	projectDescription.className = "project-description";
-	projectDescription.textContent = project.description ?? "More details coming soon.";
+	const title = document.createElement("h3");
+	title.className = "project-title";
+	title.textContent = project.title;
 
-	const projectLink = document.createElement("a");
-	projectLink.className = "project-link";
-	projectLink.href = project.url ?? "#";
-	projectLink.textContent = project.linkText ?? "Learn more";
+	const description = document.createElement("p");
+	description.className = "project-description";
+	description.textContent = project.description;
 
-	summary.append(projectTitle, projectDescription, projectLink);
-	const expanded = createExpandedContent(project);
+	front.append(title, description);
 
-	let hideTimeout = null;
-	let isExpanded = false;
+	const back = document.createElement("div");
+	back.className = "project-card-back";
 
-	const showExpanded = () => {
-		if (hideTimeout) {
-			clearTimeout(hideTimeout);
-			hideTimeout = null;
-		}
-		if (!isExpanded) {
-			isExpanded = true;
-			wrapper.classList.add("grid-item--expanded");
-			expanded.root.setAttribute("aria-hidden", "false");
-			document.body.append(expanded.root);
-		}
-	};
-
-	const hideExpanded = () => {
-		if (hideTimeout) {
-			clearTimeout(hideTimeout);
-		}
-		hideTimeout = setTimeout(() => {
-			isExpanded = false;
-			wrapper.classList.remove("grid-item--expanded");
-			expanded.root.setAttribute("aria-hidden", "true");
-			if (expanded.root.parentNode) {
-				expanded.root.remove();
-			}
-			hideTimeout = null;
-		}, 100);
-	};
-
-	wrapper.addEventListener("mouseenter", showExpanded);
-	wrapper.addEventListener("mouseleave", hideExpanded);
-	expanded.root.addEventListener("mouseenter", showExpanded);
-	expanded.root.addEventListener("mouseleave", hideExpanded);
-	
-	wrapper.addEventListener("focusin", showExpanded);
-	wrapper.addEventListener("focusout", hideExpanded);
-
-	expanded.backdrop.addEventListener("click", () => {
-		if (hideTimeout) {
-			clearTimeout(hideTimeout);
-		}
-		isExpanded = false;
-		wrapper.classList.remove("grid-item--expanded");
-		expanded.root.setAttribute("aria-hidden", "true");
-		if (expanded.root.parentNode) {
-			expanded.root.remove();
-		}
+	const detailsList = document.createElement("ul");
+	project.details.forEach((detail) => {
+		const item = document.createElement("li");
+		item.textContent = detail;
+		detailsList.append(item);
 	});
 
-	expanded.panel.addEventListener("keydown", (event) => {
-		if (event.key === "Escape") {
-			if (hideTimeout) {
-				clearTimeout(hideTimeout);
-			}
-			isExpanded = false;
-			wrapper.classList.remove("grid-item--expanded");
-			expanded.root.setAttribute("aria-hidden", "true");
-			if (expanded.root.parentNode) {
-				expanded.root.remove();
-			}
-			wrapper.focus({ preventScroll: true });
-		}
-	});
+	const link = document.createElement("a");
+	link.className = "project-link";
+	link.href = project.url;
+	link.textContent = "View Project";
+	link.target = "_blank";
+	link.rel = "noopener noreferrer";
 
-	wrapper.append(summary);
-	return { wrapper, expanded };
+	back.append(detailsList, link);
+	content.append(front, back);
+	card.append(content);
+
+	return card;
 };
 
 const renderProjects = async () => {
@@ -265,8 +216,8 @@ const renderProjects = async () => {
 
 		const fragment = document.createDocumentFragment();
 		projects.forEach((project) => {
-			const { wrapper } = createProjectCard(project);
-			fragment.append(wrapper);
+			const card = createProjectCard(project);
+			fragment.append(card);
 		});
 
 		grid.replaceChildren(fragment);
