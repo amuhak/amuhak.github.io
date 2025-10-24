@@ -4,25 +4,66 @@
             "title": "Back Propagation",
             "description": "Back Propagation implemented in C++ with CUDA with no external libraries",
             "url": "https://github.com/amuhak/BackPropagation",
-            "linkText": "Code"
+            "linkText": "Code",
+            "details": [
+                "Optimized CUDA kernels to train multilayer perceptrons without relying on external math libraries.",
+                "Implements momentum, weight decay, and configurable activation functions to experiment with convergence.",
+                "Includes benchmarking harness and visual metrics for monitoring training progress."
+            ],
+            "media": {
+                "type": "image",
+                "src": "https://placehold.co/960x540/0f172a/ffffff?text=Back+Propagation",
+                "alt": "Back Propagation CUDA training visualization"
+            }
         },
         {
             "title": "Ray Tracing",
             "description": "Ray Tracing implemented in C++ and includes a GUI",
             "url": "https://github.com/amuhak/RayTracing",
-            "linkText": "Code"
+            "linkText": "Code",
+            "details": [
+                "Physically based renderer with reflections, refractions, and soft shadows.",
+                "Interactive desktop GUI for controlling camera, material presets, and render targets.",
+                "Supports scene import/export using a lightweight JSON description format."
+            ],
+            "media": {
+                "type": "image",
+                "src": "https://placehold.co/960x540/1e293b/ffffff?text=Ray+Tracing",
+                "alt": "Ray traced render of reflective spheres"
+            }
         },
         {
             "title": "1brc",
-            "description": "Parsing text in java 38x faster than the baseline",
+            "description": "Parsing text in Java 38x faster than the baseline",
             "url": "https://github.com/amuhak/1brc",
-            "linkText": "Code"
+            "linkText": "Code",
+            "details": [
+                "Lock-free data ingestion pipeline that shards work across CPU cores.",
+                "SIMD-accelerated parsing routines tuned with JMH benchmarks.",
+                "Integrates flight recorder telemetry for profiling throughput bottlenecks."
+            ],
+            "media": {
+                "type": "image",
+                "src": "https://placehold.co/960x540/111827/ffffff?text=1brc",
+                "alt": "Performance chart comparing 1brc parser"
+            }
         },
         {
             "title": "Learn Linear Algebra",
             "description": "A website with detailed notes for Georgia Tech's Linear Algebra",
             "url": "https://math1554.amuhak.com/",
-            "linkText": "Website"
+            "linkText": "Website",
+            "details": [
+                "Modular lessons with interactive practice problems and spaced repetition prompts.",
+                "Streamlined layouts optimized for mobile and screen readers.",
+                "Backend pipeline renders LaTeX notes, quizzes, and solution walkthroughs."
+            ],
+            "media": {
+                "type": "video",
+                "src": "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+                "poster": "https://placehold.co/960x540/0b1120/ffffff?text=Learn+Linear+Algebra",
+                "alt": "Course walkthrough preview"
+            }
         }
     ]
 }
