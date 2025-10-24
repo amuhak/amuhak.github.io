@@ -166,32 +166,68 @@ const createProjectCard = (project) => {
 	summary.append(projectTitle, projectDescription, projectLink);
 	const expanded = createExpandedContent(project);
 
+	let hideTimeout = null;
+	let isExpanded = false;
+
 	const showExpanded = () => {
-		wrapper.classList.add("grid-item--expanded");
-		expanded.root.setAttribute("aria-hidden", "false");
-		document.body.append(expanded.root);
+		if (hideTimeout) {
+			clearTimeout(hideTimeout);
+			hideTimeout = null;
+		}
+		if (!isExpanded) {
+			isExpanded = true;
+			wrapper.classList.add("grid-item--expanded");
+			expanded.root.setAttribute("aria-hidden", "false");
+			document.body.append(expanded.root);
+		}
 	};
 
-	const hideExpanded = (event) => {
-		if (event?.relatedTarget && wrapper.contains(event.relatedTarget)) {
-			return;
+	const hideExpanded = () => {
+		if (hideTimeout) {
+			clearTimeout(hideTimeout);
 		}
+		hideTimeout = setTimeout(() => {
+			isExpanded = false;
+			wrapper.classList.remove("grid-item--expanded");
+			expanded.root.setAttribute("aria-hidden", "true");
+			if (expanded.root.parentNode) {
+				expanded.root.remove();
+			}
+			hideTimeout = null;
+		}, 100);
+	};
+
+	wrapper.addEventListener("mouseenter", showExpanded);
+	wrapper.addEventListener("mouseleave", hideExpanded);
+	expanded.root.addEventListener("mouseenter", showExpanded);
+	expanded.root.addEventListener("mouseleave", hideExpanded);
+	
+	wrapper.addEventListener("focusin", showExpanded);
+	wrapper.addEventListener("focusout", hideExpanded);
+
+	expanded.backdrop.addEventListener("click", () => {
+		if (hideTimeout) {
+			clearTimeout(hideTimeout);
+		}
+		isExpanded = false;
 		wrapper.classList.remove("grid-item--expanded");
 		expanded.root.setAttribute("aria-hidden", "true");
 		if (expanded.root.parentNode) {
 			expanded.root.remove();
 		}
-	};
+	});
 
-	wrapper.addEventListener("mouseenter", showExpanded);
-	wrapper.addEventListener("mouseleave", hideExpanded);
-	wrapper.addEventListener("focusin", showExpanded);
-	wrapper.addEventListener("focusout", hideExpanded);
-
-	expanded.backdrop.addEventListener("click", hideExpanded);
 	expanded.panel.addEventListener("keydown", (event) => {
 		if (event.key === "Escape") {
-			hideExpanded(event);
+			if (hideTimeout) {
+				clearTimeout(hideTimeout);
+			}
+			isExpanded = false;
+			wrapper.classList.remove("grid-item--expanded");
+			expanded.root.setAttribute("aria-hidden", "true");
+			if (expanded.root.parentNode) {
+				expanded.root.remove();
+			}
 			wrapper.focus({ preventScroll: true });
 		}
 	});
