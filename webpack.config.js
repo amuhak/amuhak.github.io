@@ -49,6 +49,7 @@ module.exports = {
         new CopyWebpackPlugin({
             patterns: [
                 { from: 'robots.txt', to: '.' },
+                { from: 'src/data', to: 'data' },
             ],
         }),
     ],

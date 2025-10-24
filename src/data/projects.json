@@ -1,0 +1,28 @@
+{
+    "projects": [
+        {
+            "title": "Back Propagation",
+            "description": "Back Propagation implemented in C++ with CUDA with no external libraries",
+            "url": "https://github.com/amuhak/BackPropagation",
+            "linkText": "Code"
+        },
+        {
+            "title": "Ray Tracing",
+            "description": "Ray Tracing implemented in C++ and includes a GUI",
+            "url": "https://github.com/amuhak/RayTracing",
+            "linkText": "Code"
+        },
+        {
+            "title": "1brc",
+            "description": "Parsing text in java 38x faster than the baseline",
+            "url": "https://github.com/amuhak/1brc",
+            "linkText": "Code"
+        },
+        {
+            "title": "Learn Linear Algebra",
+            "description": "A website with detailed notes for Georgia Tech's Linear Algebra",
+            "url": "https://math1554.amuhak.com/",
+            "linkText": "Website"
+        }
+    ]
+}
