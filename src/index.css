@@ -222,7 +222,7 @@ body {
     pointer-events: none;
 }
 
-.grid-item--expanded .project-expanded {
+.project-expanded[aria-hidden="false"] {
     display: flex;
     pointer-events: auto;
 }

@@ -169,6 +169,7 @@ const createProjectCard = (project) => {
 	const showExpanded = () => {
 		wrapper.classList.add("grid-item--expanded");
 		expanded.root.setAttribute("aria-hidden", "false");
+		document.body.append(expanded.root);
 	};
 
 	const hideExpanded = (event) => {
@@ -177,6 +178,9 @@ const createProjectCard = (project) => {
 		}
 		wrapper.classList.remove("grid-item--expanded");
 		expanded.root.setAttribute("aria-hidden", "true");
+		if (expanded.root.parentNode) {
+			expanded.root.remove();
+		}
 	};
 
 	wrapper.addEventListener("mouseenter", showExpanded);
@@ -192,8 +196,8 @@ const createProjectCard = (project) => {
 		}
 	});
 
-	wrapper.append(summary, expanded.root);
-	return wrapper;
+	wrapper.append(summary);
+	return { wrapper, expanded };
 };
 
 const renderProjects = async () => {
@@ -225,7 +229,8 @@ const renderProjects = async () => {
 
 		const fragment = document.createDocumentFragment();
 		projects.forEach((project) => {
-			fragment.append(createProjectCard(project));
+			const { wrapper } = createProjectCard(project);
+			fragment.append(wrapper);
 		});
 
 		grid.replaceChildren(fragment);
