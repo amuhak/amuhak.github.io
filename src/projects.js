@@ -113,20 +113,30 @@ const createExpandedContent = (project) => {
 
 	header.append(title, summary, cta);
 
-	const body = document.createElement("div");
-	body.className = "project-expanded__body";
-
 	const detailsSection = createDetailsList(project.details);
-	if (detailsSection) {
-		body.append(detailsSection);
-	}
-
 	const mediaSection = createMediaBlock(project.media, project.title);
+
+	const layout = document.createElement("div");
+	layout.className = "project-expanded__layout";
+
+	const infoColumn = document.createElement("div");
+	infoColumn.className = "project-expanded__column project-expanded__column--info";
+	infoColumn.append(header);
+	if (detailsSection) {
+		infoColumn.append(detailsSection);
+	}
+	layout.append(infoColumn);
+
 	if (mediaSection) {
-		body.append(mediaSection);
+		const mediaColumn = document.createElement("div");
+		mediaColumn.className = "project-expanded__column project-expanded__column--media";
+		mediaColumn.append(mediaSection);
+		layout.append(mediaColumn);
+	} else {
+		layout.classList.add("project-expanded__layout--single");
 	}
 
-	panel.append(header, body);
+	panel.append(layout);
 	root.append(backdrop, panel);
 
 	return { root, backdrop, panel };
