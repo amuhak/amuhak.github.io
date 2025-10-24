@@ -5,6 +5,8 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    width: 100vw;
+    height: 100vh;
 }
 
 .container {
@@ -220,6 +222,8 @@ body {
     justify-content: center;
     z-index: 50;
     pointer-events: none;
+    max-height: calc(100vh - 2 * clamp(24px, 8vh, 100px));
+    max-width: calc(100vw - 2 * clamp(24px, 8vw, 100px));
 }
 
 .project-expanded[aria-hidden="false"] {
