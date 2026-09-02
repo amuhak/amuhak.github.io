@@ -62,6 +62,22 @@
                 "src": "https://placehold.co/960x540/374151/ffffff?text=Learn+Linear+Algebra",
                 "alt": "Learn Linear Algebra website screenshot"
             }
+        },
+        {
+            "title": "Tech Internships",
+            "description": "Aggregated CS/CE internship board with generated requirements to make skimming easy",
+            "url": "https://jobs.amuhak.com/",
+            "linkText": "Website",
+            "details": [
+                "Scrapes and aggregates CS/CE internship listings every 15 minutes.",
+                "Extracts technical requirements and qualifications so you can quickly filter and select roles.",
+                "Optional twice-daily email digest of newly opened postings with local application tracking."
+            ],
+            "media": {
+                "type": "image",
+                "src": "https://placehold.co/960x540/1e1b4b/ffffff?text=Tech+Internships",
+                "alt": "Tech Internships website screenshot"
+            }
         }
     ]
 }
